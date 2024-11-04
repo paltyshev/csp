@@ -12,7 +12,6 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentCity(prev => prev === 'Краснодаре' ? 'Геленджике' : 'Краснодаре')
-      const span = document.querySelector('.city-highlight')
     }, 3000)
     return () => clearInterval(interval)
   }, [])
