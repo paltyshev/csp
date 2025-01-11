@@ -1,4 +1,5 @@
 import { Button } from './ui/Button'
+import Image from 'next/image'
 
 const portfolioItems = [
   {
@@ -44,16 +45,20 @@ export default function PortfolioSection() {
               className="bg-[var(--background)] rounded-xl overflow-hidden group"
             >
               <div className="relative h-64">
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                   <Button variant="outline" className="text-white border-white">
                     Подробнее
                   </Button>
                 </div>
-                <img 
-                  src="/api/placeholder/400/320"
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/api/placeholder/400/320"
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-[var(--foreground)]">

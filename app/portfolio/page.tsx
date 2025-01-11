@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Header from '@/components/ui/Header'
 
 // Временные данные для портфолио
@@ -28,8 +28,6 @@ const projects = [
 ]
 
 export default function PortfolioPage() {
-  const [selectedProject, setSelectedProject] = useState(null)
-
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <Header />
@@ -72,7 +70,6 @@ export default function PortfolioPage() {
                     {project.description}
                   </p>
                   <button
-                    onClick={() => setSelectedProject(project)}
                     className="text-[var(--primary)] hover:underline"
                   >
                     Подробнее
