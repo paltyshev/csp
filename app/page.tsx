@@ -1,12 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Menu, X, Phone } from 'lucide-react'
+import Header from '@/components/ui/Header'
 import FeaturesSection from '@/components/FeaturesSection'
+import RepairTypesSection from '@/components/RepairTypesSection'
+import HowWeWorkSection from '@/components/HowWeWorkSection'
+import PortfolioSection from '@/components/PortfolioSection'
+import ContactSection from '@/components/ContactSection'
+import { Button } from '@/components/ui/Button'
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentCity, setCurrentCity] = useState('Краснодаре')
 
   useEffect(() => {
@@ -18,54 +21,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-[var(--background)]/80 backdrop-blur-sm z-50 border-b border-[var(--border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <span className="text-xl font-bold text-[var(--primary)]">Комфорт Строй Про</span>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-[var(--foreground)] hover:text-[var(--primary)]">Главная</Link>
-              <Link href="/services" className="text-[var(--foreground)] hover:text-[var(--primary)]">Услуги</Link>
-              <Link href="/portfolio" className="text-[var(--foreground)] hover:text-[var(--primary)]">Портфолио</Link>
-              <Link href="/contacts" className="text-[var(--foreground)] hover:text-[var(--primary)]">Контакты</Link>
-              <a href="tel:+79001234567" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-[var(--primary-foreground)] bg-[var(--primary)] hover:opacity-90">
-                <Phone className="h-4 w-4 mr-2" />
-                +7 900 123-45-67
-              </a>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-[var(--foreground)] hover:text-[var(--primary)]"
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[var(--background)]">
-              <Link href="/" className="block px-3 py-2 text-[var(--foreground)] hover:text-[var(--primary)]">Главная</Link>
-              <Link href="/services" className="block px-3 py-2 text-[var(--foreground)] hover:text-[var(--primary)]">Услуги</Link>
-              <Link href="/portfolio" className="block px-3 py-2 text-[var(--foreground)] hover:text-[var(--primary)]">Портфолио</Link>
-              <Link href="/contacts" className="block px-3 py-2 text-[var(--foreground)] hover:text-[var(--primary)]">Контакты</Link>
-              <a href="tel:+79001234567" className="block px-3 py-2 text-[var(--primary)] hover:opacity-90">
-                <Phone className="h-4 w-4 inline mr-2" />
-                +7 900 123-45-67
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <main className="pt-16">
@@ -83,22 +39,25 @@ export default function Home() {
               , реализуя проекты любой сложности точно в срок.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#calculate"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[var(--primary-foreground)] bg-[var(--primary)] hover:opacity-90 transition-colors"
-              >
-                Рассчитать стоимость
-              </a>
-              <a
-                href="#portfolio"
-                className="inline-flex items-center justify-center px-6 py-3 border border-[var(--border)] text-base font-medium rounded-md text-[var(--foreground)] bg-[var(--background)] hover:bg-[var(--muted)] transition-colors"
-              >
-                Смотреть работы
-              </a>
+              <Button size="lg" asChild>
+                <a href="#calculate">
+                  Рассчитать стоимость
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#portfolio">
+                  Смотреть работы
+                </a>
+              </Button>
             </div>
           </div>
         </div>
+
         <FeaturesSection />
+        <RepairTypesSection />
+        <HowWeWorkSection />
+        <PortfolioSection />
+        <ContactSection />
       </main>
     </div>
   )

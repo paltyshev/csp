@@ -17,6 +17,11 @@
   
   /* Border colors */
   --border: #e5e7eb;
+  
+  /* Additional required variables for components */
+  --ring: #ca8a04;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +40,11 @@
     
     /* Border colors in dark mode */
     --border: #1f2937;
+    
+    /* Additional required variables for components in dark mode */
+    --ring: #eab308;
+    --secondary: #1f2937;
+    --secondary-foreground: #ededed;
   }
 }
 
