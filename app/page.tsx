@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Header from '@/components/ui/Header'
 import FeaturesSection from '@/components/FeaturesSection'
 import RepairTypesSection from '@/components/RepairTypesSection'
@@ -8,17 +7,9 @@ import HowWeWorkSection from '@/components/HowWeWorkSection'
 import PortfolioSection from '@/components/PortfolioSection'
 import ContactSection from '@/components/ContactSection'
 import { Button } from '@/components/ui/Button'
+import AnimatedLocation from '@/components/ui/AnimatedLocation'
 
 export default function Home() {
-  const [currentCity, setCurrentCity] = useState('Краснодаре')
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCity(prev => prev === 'Краснодаре' ? 'Геленджике' : 'Краснодаре')
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <Header />
@@ -31,13 +22,14 @@ export default function Home() {
               <span>Ремонт квартир</span>
               <span className="text-[var(--primary)]">на юге России</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-[var(--muted-foreground)] mb-12 max-w-3xl mx-auto">
-              Работаем в{' '}
-              <span className="city-highlight px-1 bg-[var(--primary-light)] font-medium text-[var(--primary)]">
-                {currentCity}
-              </span>
-              , реализуя проекты любой сложности точно в срок.
-            </p>
+            <div className="text-xl sm:text-2xl text-[var(--muted-foreground)] mb-12 max-w-3xl mx-auto flex flex-col gap-2">
+              <p>
+                Работаем в <AnimatedLocation />
+              </p>
+              <p>
+                реализуя проекты любой сложности точно в срок.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
                 <a href="#calculate">

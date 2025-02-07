@@ -15,7 +15,8 @@
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
