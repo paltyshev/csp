@@ -1,5 +1,6 @@
 import { Button } from './ui/Button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const portfolioItems = [
   {
@@ -76,7 +77,7 @@ export default function PortfolioSection() {
 
         <div className="text-center mt-12">
           <Button size="lg" asChild>
-            <a href="/portfolio">Смотреть все работы</a>
+            <Link href="/portfolio">Смотреть все работы</Link>
           </Button>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Header from '@/components/ui/Header'
+import ProjectCard from '@/components/ProjectCard'
 
 // Временные данные для портфолио
 const projects = [
@@ -12,7 +13,6 @@ const projects = [
     area: '45 м²',
     duration: '3 месяца',
     description: 'Полный ремонт квартиры-студии в современном стиле. Перепланировка пространства, замена всех коммуникаций, установка современной техники.',
-    // В реальном проекте здесь будут реальные фотографии
     images: ['/projects/project1-1.jpg', '/projects/project1-2.jpg']
   },
   {
@@ -24,7 +24,6 @@ const projects = [
     description: 'Капитальный ремонт двухкомнатной квартиры в классическом стиле. Замена перекрытий, выравнивание стен, замена коммуникаций.',
     images: ['/projects/project2-1.jpg', '/projects/project2-2.jpg']
   },
-  // Добавьте больше проектов по мере необходимости
 ]
 
 export default function PortfolioPage() {
@@ -47,35 +46,14 @@ export default function PortfolioPage() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div
+              <ProjectCard
                 key={project.id}
-                className="border border-[var(--border)] rounded-lg overflow-hidden hover:border-[var(--primary)] transition-colors"
-              >
-                <div className="aspect-video bg-[var(--muted)] flex items-center justify-center">
-                  {/* В реальном проекте здесь будет изображение */}
-                  <span className="text-[var(--muted-foreground)]">Фото проекта</span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">
-                    {project.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-4 text-[var(--muted-foreground)] mb-4">
-                    <span>{project.type}</span>
-                    <span>•</span>
-                    <span>{project.area}</span>
-                    <span>•</span>
-                    <span>{project.duration}</span>
-                  </div>
-                  <p className="text-[var(--muted-foreground)] mb-4">
-                    {project.description}
-                  </p>
-                  <button
-                    className="text-[var(--primary)] hover:underline"
-                  >
-                    Подробнее
-                  </button>
-                </div>
-              </div>
+                title={project.title}
+                type={project.type}
+                area={project.area}
+                duration={project.duration}
+                description={project.description}
+              />
             ))}
           </div>
 

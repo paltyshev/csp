@@ -5,9 +5,7 @@ import Image from 'next/image'
 
 const portfolioImages = [
   'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/prj100/rcx078znizfhlfzvsz5g.jpg',
-  'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/prj100/wcjjwyrtuh5ualvigik7.jpg',
-  'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643856/comfortstroy/prj100/d9wa1nfkhoi0uer0pbt4.jpg',
-  'https://res.cloudinary.com/ddpeoofxn/image/upload/v1682238028/comfortstroy/95ae975a-f685-430a-8c72-8ca6510d4b54_aiaivx.jpg'
+  'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/prj100/wcjjwyrtuh5ualvigik7.jpg'
 ]
 
 const FeaturesSection = () => {

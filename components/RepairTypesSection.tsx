@@ -1,34 +1,35 @@
 import { Paintbrush, Hammer, Wrench, Home } from 'lucide-react'
 import { Button } from './ui/Button'
+import Link from 'next/link'
 
 const repairTypes = [
-  {
-    icon: Paintbrush,
-    title: 'Косметический',
-    description: 'Обновление отделки без изменения планировки',
-    price: 'от 3 500',
-    features: ['Поклейка обоев', 'Покраска стен', 'Замена напольного покрытия']
-  },
-  {
-    icon: Wrench,
-    title: 'Капитальный',
-    description: 'Полная замена отделки и коммуникаций',
-    price: 'от 6 000',
-    features: ['Замена проводки', 'Замена труб', 'Выравнивание стен']
-  },
-  {
-    icon: Home,
-    title: 'Дизайнерский',
-    description: 'Ремонт по индивидуальному проекту',
-    price: 'от 8 500',
-    features: ['Авторский надзор', '3D-визуализация', 'Подбор материалов']
-  },
   {
     icon: Hammer,
     title: 'Черновой',
     description: 'Базовая отделка в новостройке',
     price: 'от 4 500',
     features: ['Штукатурка стен', 'Стяжка пола', 'Разводка коммуникаций']
+  },
+  {
+    icon: Paintbrush,
+    title: 'Косметический',
+    description: 'Обновление отделки без изменения планировки',
+    price: 'от 9 000',
+    features: ['Поклейка обоев', 'Покраска стен', 'Замена напольного покрытия']
+  },
+  {
+    icon: Wrench,
+    title: 'Капитальный',
+    description: 'Полная замена отделки и коммуникаций',
+    price: 'от 15 000',
+    features: ['Замена проводки', 'Замена труб', 'Выравнивание стен']
+  },
+  {
+    icon: Home,
+    title: 'Дизайнерский',
+    description: 'Ремонт по индивидуальному проекту',
+    price: 'от 18 000',
+    features: ['Авторский надзор', '3D-визуализация', 'Подбор материалов']
   }
 ]
 
@@ -49,17 +50,17 @@ export default function RepairTypesSection() {
           {repairTypes.map((type) => {
             const Icon = type.icon
             return (
-              <div key={type.title} className="bg-[var(--background)] p-6 rounded-xl">
+              <div key={type.title} className="bg-[var(--background)] p-6 rounded-xl flex flex-col">
                 <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary-light)]">
                   <Icon className="h-6 w-6 text-[var(--primary)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[var(--foreground)]">
                   {type.title}
                 </h3>
-                <p className="text-[var(--muted-foreground)] mb-4">
+                <p className="text-[var(--muted-foreground)] min-h-[48px]">
                   {type.description}
                 </p>
-                <div className="text-2xl font-bold text-[var(--primary)] mb-4">
+                <div className="text-2xl font-bold text-[var(--primary)] my-4">
                   {type.price} ₽/м²
                 </div>
                 <ul className="space-y-2 mb-6 text-[var(--foreground)]">
@@ -70,9 +71,11 @@ export default function RepairTypesSection() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full">
-                  Подробнее
-                </Button>
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link href="/services">Подробнее</Link>
+                  </Button>
+                </div>
               </div>
             )
           })}

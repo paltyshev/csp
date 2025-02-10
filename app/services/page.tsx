@@ -3,43 +3,74 @@
 import React from 'react'
 import { Wrench, Paintbrush, Ruler, Hammer, Thermometer, Power } from 'lucide-react'
 import Header from '@/components/ui/Header'
+import { Button } from '@/components/ui/Button'
 
 const services = [
   {
+    title: 'Черновой ремонт',
+    description: 'Подготовительные работы для дальнейшей отделки.',
+    icon: Hammer,
+    price: 'от 4 500 ₽/м²',
+    features: [
+      'Демонтаж',
+      'Выравнивание поверхностей',
+      'Прокладка коммуникаций'
+    ]
+  },
+  {
     title: 'Косметический ремонт',
-    description: 'Обновление внешнего вида помещения без капитальных изменений. Включает покраску, поклейку обоев, замену напольных покрытий.',
+    description: 'Обновление внешнего вида помещения без капитальных изменений.',
     icon: Paintbrush,
-    price: 'от 3 500 ₽/м²'
+    price: 'от 9 000 ₽/м²',
+    features: [
+      'Поклейка обоев',
+      'Покраска стен',
+      'Замена напольных покрытий'
+    ]
   },
   {
     title: 'Капитальный ремонт',
-    description: 'Полное обновление помещения с заменой коммуникаций, выравниванием стен, потолков и полов.',
+    description: 'Полное обновление помещения с заменой коммуникаций.',
     icon: Wrench,
-    price: 'от 5 500 ₽/м²'
+    price: 'от 15 000 ₽/м²',
+    features: [
+      'Замена коммуникаций',
+      'Выравнивание поверхностей',
+      'Полная отделка'
+    ]
   },
   {
     title: 'Дизайнерский ремонт',
-    description: 'Эксклюзивный ремонт по индивидуальному дизайн-проекту с использованием премиальных материалов.',
+    description: 'Эксклюзивный ремонт по индивидуальному дизайн-проекту.',
     icon: Ruler,
-    price: 'от 8 000 ₽/м²'
-  },
-  {
-    title: 'Черновые работы',
-    description: 'Подготовительные работы включая демонтаж, выравнивание поверхностей, прокладку коммуникаций.',
-    icon: Hammer,
-    price: 'от 2 000 ₽/м²'
+    price: 'от 18 000 ₽/м²',
+    features: [
+      'Авторский надзор',
+      '3D-визуализация',
+      'Премиальные материалы'
+    ]
   },
   {
     title: 'Инженерные системы',
-    description: 'Монтаж и замена отопления, водоснабжения, канализации и вентиляции.',
+    description: 'Монтаж и замена инженерных коммуникаций.',
     icon: Thermometer,
-    price: 'Индивидуально'
+    price: 'По проекту',
+    features: [
+      'Отопление',
+      'Водоснабжение',
+      'Вентиляция'
+    ]
   },
   {
     title: 'Электромонтаж',
-    description: 'Полная замена электропроводки, установка розеток, выключателей и осветительных приборов.',
+    description: 'Профессиональная установка электрики.',
     icon: Power,
-    price: 'от 800 ₽/точка'
+    price: 'от 1 200 ₽/точка',
+    features: [
+      'Замена проводки',
+      'Установка розеток',
+      'Монтаж освещения'
+    ]
   }
 ]
 
@@ -65,18 +96,33 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-6 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:border-[var(--primary)] transition-colors"
+                className="bg-[var(--background)] p-6 rounded-xl border border-[var(--border)] hover:border-[var(--primary)] transition-all duration-300 flex flex-col"
               >
-                <service.icon className="w-12 h-12 text-[var(--primary)] mb-4" />
-                <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">
+                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--primary-light)]">
+                  <service.icon className="h-6 w-6 text-[var(--primary)]" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-[var(--foreground)]">
                   {service.title}
                 </h3>
-                <p className="text-[var(--muted-foreground)] mb-4">
+                <p className="text-[var(--muted-foreground)] min-h-[48px]">
                   {service.description}
                 </p>
-                <p className="text-lg font-semibold text-[var(--primary)]">
+                <div className="text-2xl font-bold text-[var(--primary)] my-4">
                   {service.price}
-                </p>
+                </div>
+                <ul className="space-y-2 mb-6 text-[var(--foreground)]">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-full">
+                    Оставить заявку
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
@@ -86,12 +132,9 @@ export default function ServicesPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-6">
               Готовы начать ремонт?
             </h2>
-            <a
-              href="tel:+79001234567"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[var(--primary-foreground)] bg-[var(--primary)] hover:opacity-90 transition-colors"
-            >
+            <Button size="lg" className="px-8">
               Получить консультацию
-            </a>
+            </Button>
           </div>
         </div>
       </div>
