@@ -1,5 +1,6 @@
 import React from 'react';
 import { Clock, Home, Wrench } from 'lucide-react';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   title: string;
@@ -7,6 +8,7 @@ interface ProjectCardProps {
   area: string;
   duration: string;
   description: string;
+  image: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -14,12 +16,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   type,
   area,
   duration,
-  description
+  description,
+  image
 }) => {
   return (
     <div className="border border-[var(--border)] rounded-lg overflow-hidden hover:border-[var(--primary)] transition-colors">
-      <div className="aspect-video bg-[var(--muted)] flex items-center justify-center">
-        <span className="text-[var(--muted-foreground)]">Фото проекта</span>
+      <div className="relative aspect-video overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={85}
+          priority
+        />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-[var(--foreground)] mb-4">

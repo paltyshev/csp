@@ -1,28 +1,34 @@
 import { Button } from './ui/Button'
-import Image from 'next/image'
 import Link from 'next/link'
+import ProjectCard from './ProjectCard'
 
 const portfolioItems = [
   {
-    title: 'Современная квартира',
+    id: 1,
+    title: 'Современный интерьер',
     type: 'Дизайнерский ремонт',
     area: '85 м²',
     duration: '4 месяца',
-    imageUrl: '/portfolio/modern-apartment.jpg'
+    description: 'Полный ремонт квартиры в современном стиле с использованием качественных материалов и современных решений.',
+    image: 'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/prj100/d9wa1nfkhoi0uer0pbt4'
   },
   {
-    title: 'Классический интерьер',
+    id: 2,
+    title: 'Светлая квартира',
     type: 'Капитальный ремонт',
-    area: '120 м²',
+    area: '75 м²',
     duration: '3 месяца',
-    imageUrl: '/portfolio/classic-interior.jpg'
+    description: 'Капитальный ремонт квартиры с заменой всех коммуникаций и созданием светлого, просторного пространства.',
+    image: 'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/photo5359440851614413212_ldubww'
   },
   {
-    title: 'Студия в новостройке',
-    type: 'Черновой ремонт',
-    area: '45 м²',
-    duration: '2 месяца',
-    imageUrl: '/portfolio/studio.jpg'
+    id: 3,
+    title: 'Классический стиль',
+    type: 'Дизайнерский ремонт',
+    area: '95 м²',
+    duration: '5 месяцев',
+    description: 'Ремонт квартиры в классическом стиле с использованием премиальных материалов и сохранением элегантности в каждой детали.',
+    image: 'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/95ae975a-f685-430a-8c72-8ca6510d4b54_aiaivx'
   }
 ]
 
@@ -41,37 +47,15 @@ export default function PortfolioSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map((item) => (
-            <div 
-              key={item.title}
-              className="bg-[var(--background)] rounded-xl overflow-hidden group"
-            >
-              <div className="relative h-64">
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                  <Button variant="outline" className="text-white border-white">
-                    Подробнее
-                  </Button>
-                </div>
-                <div className="relative w-full h-full">
-                  <Image 
-                    src="/api/placeholder/400/320"
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-[var(--foreground)]">
-                  {item.title}
-                </h3>
-                <div className="space-y-2 text-[var(--muted-foreground)]">
-                  <p>Тип: {item.type}</p>
-                  <p>Площадь: {item.area}</p>
-                  <p>Срок: {item.duration}</p>
-                </div>
-              </div>
-            </div>
+            <ProjectCard
+              key={item.id}
+              title={item.title}
+              type={item.type}
+              area={item.area}
+              duration={item.duration}
+              description={item.description}
+              image={item.image}
+            />
           ))}
         </div>
 

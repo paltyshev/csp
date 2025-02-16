@@ -13,7 +13,7 @@ const projects = [
     area: '45 м²',
     duration: '3 месяца',
     description: 'Полный ремонт квартиры-студии в современном стиле. Перепланировка пространства, замена всех коммуникаций, установка современной техники.',
-    images: ['/projects/project1-1.jpg', '/projects/project1-2.jpg']
+    image: 'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/prj100/d9wa1nfkhoi0uer0pbt4'
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const projects = [
     area: '65 м²',
     duration: '4 месяца',
     description: 'Капитальный ремонт двухкомнатной квартиры в классическом стиле. Замена перекрытий, выравнивание стен, замена коммуникаций.',
-    images: ['/projects/project2-1.jpg', '/projects/project2-2.jpg']
+    image: 'https://res.cloudinary.com/ddpeoofxn/image/upload/v1730643859/comfortstroy/95ae975a-f685-430a-8c72-8ca6510d4b54_aiaivx'
   },
 ]
 
@@ -53,6 +53,7 @@ export default function PortfolioPage() {
                 area={project.area}
                 duration={project.duration}
                 description={project.description}
+                image={project.image}
               />
             ))}
           </div>
