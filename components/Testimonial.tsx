@@ -15,7 +15,7 @@ export default function Testimonial({ text, author, position }: TestimonialProps
       </div>
       <div className="pt-2">
         <p className="text-[var(--foreground)] italic mb-4">
-          "{text}"
+          &ldquo;{text}&rdquo;
         </p>
         <div className="flex items-center">
           <div>
