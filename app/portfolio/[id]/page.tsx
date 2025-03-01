@@ -1,15 +1,18 @@
 import { Suspense } from 'react'
 import ProjectClientContainer from '@/components/ProjectClientContainer'
 
+// Используем правильные типы для Next.js 15
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
+
 interface ProjectPageProps {
-  params: {
+  params: Params & {
     id: string
   }
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   // Обработка параметров в серверном компоненте
-  // Используем await для доступа к params в соответствии с рекомендациями Next.js
+  // В Next.js 15 нужно ждать params перед доступом к свойствам
   const resolvedParams = await params;
   const projectId = parseInt(resolvedParams.id);
   
