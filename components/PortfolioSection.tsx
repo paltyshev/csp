@@ -49,6 +49,7 @@ export default function PortfolioSection() {
           {portfolioItems.map((item) => (
             <ProjectCard
               key={item.id}
+              id={item.id}
               title={item.title}
               type={item.type}
               area={item.area}
