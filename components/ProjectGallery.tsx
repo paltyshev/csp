@@ -134,12 +134,12 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
           </div>
 
           <div className="relative w-full max-w-6xl max-h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-            <div className="relative w-full aspect-video">
+            <div className="relative w-full h-[80vh] flex items-center justify-center">
               <Image
                 src={images[currentImageIndex]}
                 alt={`${title} - изображение ${currentImageIndex + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain max-h-full max-w-full h-auto w-auto"
                 sizes="100vw"
                 quality={90}
               />

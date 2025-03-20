@@ -52,7 +52,7 @@ export default function ProjectClientContainer({ projectId }: ProjectClientConta
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <Header />
-      <div className="container mx-auto px-4 pt-32 pb-16">
+      <div className="container mx-auto px-4 pt-16 md:pt-32 pb-16">
         {/* Навигация */}
         <div className="flex justify-between items-center mb-8">
           <Link 
@@ -63,7 +63,7 @@ export default function ProjectClientContainer({ projectId }: ProjectClientConta
             Назад к портфолио
           </Link>
           
-          <div className="text-sm text-[var(--muted-foreground)] flex items-center">
+          <div className="hidden md:flex text-sm text-[var(--muted-foreground)] flex items-center">
             <Link href="/" className="hover:text-[var(--foreground)]">Главная</Link>
             <ChevronRight className="w-3 h-3 mx-2" />
             <Link href="/portfolio" className="hover:text-[var(--foreground)]">Портфолио</Link>
